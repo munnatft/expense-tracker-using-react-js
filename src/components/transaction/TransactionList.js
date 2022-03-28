@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteTransaction, handleDeleteTransaction } from '../../Store/action';
+import {  handleDeleteTransaction } from '../../Store/action';
 import classes from './Transaction.module.css';
 
 const TransactionList = (props) => {

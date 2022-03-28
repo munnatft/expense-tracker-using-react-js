@@ -69,7 +69,6 @@ export const handleFetchTransaction = () => {
             dispatch(fetchTransaction(transactions));
 
         } catch (error) {
-            
             dispatch(showError(error.message))
         }
         
@@ -78,21 +77,38 @@ export const handleFetchTransaction = () => {
 
 export const handleAddTransaction = (transaction) => {
     return async(dispatch) => {
-        const res = await fetch('https://auth-app-81dfd-default-rtdb.firebaseio.com/transactions.json',{
-            method : 'POST',
-            body : JSON.stringify(transaction)
-        })
-        const data = await res.json();
-        const newTransaction = {_id : data.name , ...transaction}
-        dispatch(addTransaction(newTransaction))
+        try {
+            const res = await fetch('https://auth-app-81dfd-default-rtdb.firebaseio.com/transactions.json',{
+                method : 'POST',
+                body : JSON.stringify(transaction)
+            })
+            if(!res.ok) {
+                throw new Error("Failed to add the transaction into the server.")
+            }
+            const data = await res.json();
+            const newTransaction = {_id : data.name , ...transaction}
+            dispatch(addTransaction(newTransaction))
+        } catch (error) {
+            dispatch(showError(error.message))
+        }
+        
     }
 }
 
 export const handleDeleteTransaction = (id) => {
+    
     return async (dispatch) => {
-        const res = await fetch(`https://auth-app-81dfd-default-rtdb.firebaseio.com/transactions/${id}.json`,{
-            method : 'DELETE'
-        })
-        dispatch(deleteTransaction(id))
+        try {
+            const res = await fetch(`https://auth-app-81dfd-default-rtdb.firebaseio.com/transactions/${id}.json`,{
+                method : 'DELETE'
+            })
+            if(!res.ok) {
+                throw new Error("Failed to delete the transaction.")
+            }
+            dispatch(deleteTransaction(id))
+        } catch (error) {
+            dispatch(showError(error.message))
+        }
+        
     }
 }

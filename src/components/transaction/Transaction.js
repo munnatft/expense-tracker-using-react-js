@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { handleFetchTransaction } from '../../Store/action';
 import classes from './Transaction.module.css';
 import TransactionList from './TransactionList';
@@ -11,11 +12,11 @@ const Transaction = () => {
     useEffect(()=>{
       dispatch(handleFetchTransaction())
     },[dispatch])
-    
+
 
     return (
         <div className={classes['card']}>
-            { error && console.log(error)}
+            
             <div className={classes['card-title']}>
               History of transactions
             </div>

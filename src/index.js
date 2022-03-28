@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import { ExpenseProvider } from './Store/ExpenseProvider';
-import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { ExpenseReducer } from './Store/reducer';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import 'react-toastify/dist/ReactToastify.css';
 
 const rootReducer = combineReducers({
   expense : ExpenseReducer
