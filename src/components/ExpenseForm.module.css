@@ -1,0 +1,110 @@
+.expense-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    margin: 0rem 0rem 1rem 0rem;
+    /* border: 2px solid rgb(243, 238, 238); */
+    /* padding-bottom: 2rem; */
+}
+.expense-form h2 {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    height: 30%;
+    border: 1px solid rgb(233, 225, 225);
+    box-shadow: 0px 2px 6px #b8b8b8;
+    border-radius: 10px;
+    padding: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: #0b1b34;
+    color: white;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control label {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.form-control input {
+    width: 22rem;
+    height: 2rem;
+    font-size: 1.25rem;
+    padding-left: 0.5rem;
+    outline: none;
+    border-radius: 0.75rem;
+    font-style: italic;
+}
+
+.form-control select {
+    width: 22.875rem;
+    height: 2.375rem;
+    font-size: 1.25rem;
+    padding-left: 0.5rem;
+    outline: none;
+    border-radius: 0.75rem;
+    font-style: italic;
+}
+
+.invalid label {
+    color: firebrick;
+}
+.invalid input{
+    border-color: firebrick;
+}
+
+.invalid p {
+    margin: 0;
+    color: firebrick;
+}
+
+.btn {
+    margin-top: 1rem;
+    padding: 0.25rem 1.5rem 0.25rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: large;
+    font-style: oblique;
+    cursor: pointer;
+    background-color: #0281fd;
+    color: white;
+    border: none;
+}
+.btn:hover {
+    background-color: #72a9f0;
+}
+
+@media (max-width : 576px) {
+    .expense-form {
+        margin-top: 0.75rem;
+    }
+    .expense-form h2 {
+        margin: 0;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+    }
+    .form {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .form-control input {
+        width: 22rem;
+    }
+    .form-control select {
+        width: 22.875rem;
+    }
+}

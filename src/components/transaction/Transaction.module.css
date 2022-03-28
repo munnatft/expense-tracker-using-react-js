@@ -1,0 +1,86 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    margin: 0rem 0rem 1rem 0rem;
+    /* border: 2px solid rgb(243, 238, 238); */
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    padding-bottom: 1rem;
+}
+
+.card-body {
+    width: 65%;
+    height: max-content;
+    border: 2px solid rgb(119, 116, 116);
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem 0.75rem 2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background-color: #0b1b34;
+    color: white;
+}
+
+.no-transaction {
+    margin: 0;
+}
+
+.list-item {
+    width: 90%;
+    height: max-content;
+    border: 2px solid rgb(66, 63, 63);
+    border-radius: 0.5rem;
+    padding: 0.5rem ;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    border-color: white;
+}
+.expense {
+    display: flex;
+}
+.amount {
+    height: fit-content;
+    width: max-content;
+    padding: 0.25rem;
+    border: 1px solid rgb(66, 63, 63);
+    border-radius: 0.5rem;
+    border-color: white;
+}
+
+.income-type{
+    background-color: #03d47c;
+}
+
+.expense-type {
+    background-color:rgb(234 67 53);
+}
+
+.expense .cancel {
+    /* position: absolute; */
+    padding-left: 0.75rem;
+    padding-top: 0.25rem;
+    color: rgb(236, 54, 54);
+    font-weight: 500;
+    cursor: pointer;
+    /* right: 18%; */
+}
+
+@media(max-width : 576px) {
+    .card-body {
+        width: 75%;
+    }
+    .list-item {
+        width: 100%;
+    }
+}
+
