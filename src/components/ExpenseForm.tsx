@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useExpense } from '../Store/ExpenseProvider';
 import classes from './ExpenseForm.module.css';
 import { handleAddTransaction } from '../Store/action';
+import { ThunkActionDispatch } from 'redux-thunk';
 
 const ExpenseForm = () => {
-  const dispatch = useDispatch();
-  // const {addToTransactionHistory} = useExpense();
+  const dispatch: ThunkActionDispatch<any> = useDispatch();
   const [title , setTitle] = useState('');
   const [amount , setAmount] = useState('');
   const [type,setType] = useState('Income');
@@ -17,7 +16,7 @@ const ExpenseForm = () => {
 
   const numberExpression = /^[0-9]+$/;
 
-  const formSubmitHandler = (e) => {
+  const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const titleIsValid = title.trim().length !== 0 ;
     const amountIsValid = numberExpression.test(amount);
@@ -29,15 +28,12 @@ const ExpenseForm = () => {
     if(!formIsValid) {
       return ;
     }
-    const transaction = {
+    const transaction: AddTransaction = {
       type : type,
       title : title,
       amount : amount
     }
-    // dispatch(addTransaction(transaction))
     dispatch(handleAddTransaction(transaction));
-
-    // addToTransactionHistory(type,title,amount);
     setTitle('');
     setAmount('');
   }

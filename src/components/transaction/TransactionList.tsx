@@ -1,11 +1,13 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
+import { ThunkActionDispatch } from 'redux-thunk';
 import {  handleDeleteTransaction } from '../../Store/action';
 import classes from './Transaction.module.css';
 
-const TransactionList = (props) => {
+const TransactionList = ({transaction}: {transaction: Transaction}) => {
 
-  const dispatch = useDispatch();
-  const {_id,type,title,amount} = props.transaction;
+  const dispatch: ThunkActionDispatch<any> = useDispatch();
+  const {_id,type,title,amount} = transaction;
 
 
   return (

@@ -1,20 +1,22 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Income from './Income';
 import classes from './Budget.module.css';
 import Expense from './Expense';
 import Savings from './Savings';
 import { useEffect } from 'react';
 import { calculateExpense, calculateIncome } from '../../Store/action';
+import { useTypedSelector } from '../../Store';
+import { Dispatch } from 'redux';
 
 const BalanceBox = () => {
 
-    const {transactions , income , expense} = useSelector(state => state.expense);
-    const dispatch = useDispatch();
+    const {transactions , income , expense} = useTypedSelector((state) => state.details);
+    const dispatch: Dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(calculateIncome())
         dispatch(calculateExpense())
-    },[transactions])
+    },[transactions, dispatch])
 
     
     return (

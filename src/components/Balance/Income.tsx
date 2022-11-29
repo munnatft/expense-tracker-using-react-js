@@ -1,9 +1,7 @@
-// import { useExpense } from '../../Store/ExpenseProvider';
+import React from "react";
 import classes from './Budget.module.css';
 
-const Income = ({incomeBalance}) => {
-  // const {income} = useExpense();
-
+const Income: React.FC<{incomeBalance: number}> = ({incomeBalance}) => {
 
     return (
       <div className={classes.budget}>
