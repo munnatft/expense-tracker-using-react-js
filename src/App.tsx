@@ -12,9 +12,8 @@ const App = () => {
     <ErrorBoundary>
       <div >
         <header>
-
-        <img src={expenseTrackerLogo} alt="expense-tracker" />
-        <h1 className="heading">My Budget Tracker</h1>
+          <img src={expenseTrackerLogo} alt="expense-tracker" />
+          <h1 className="heading">My Budget Tracker</h1>
         </header>
         <BalanceBox />
         <ExpenseForm />

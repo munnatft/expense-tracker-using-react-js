@@ -18,7 +18,7 @@ const Transaction = () => {
   return (
     <div className={classes["card"]}>
       <div className={classes["card-title"]}>History of transactions</div>
-      <div className={classes["card-body"]}>
+      <ul className={classes["card-body"]}>
         {transactions.length > 0 &&
           transactions.map((transaction) => {
             return (
@@ -32,7 +32,7 @@ const Transaction = () => {
         {transactions.length === 0 && (
           <p className={classes["no-transaction"]}>No transaction found !</p>
         )}
-      </div>
+      </ul>
     </div>
   );
 };

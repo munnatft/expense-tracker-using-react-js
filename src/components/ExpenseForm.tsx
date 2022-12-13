@@ -47,7 +47,7 @@ const ExpenseForm = () => {
         <form className={classes.form} onSubmit={formSubmitHandler}>
             <div className={classes['form-control']}>
                 <label>Select</label>
-                <select value={type} onChange={(e)=>setType(e.target.value)}>
+                <select value={type} onChange={(e)=>setType(e.target.value)} aria-label="choose-type" >
                     <option value="Income">Income</option>
                     <option value="Expense">Expense</option>
                 </select>
@@ -57,13 +57,14 @@ const ExpenseForm = () => {
               <input 
                 type="text"
                 value={title} 
-                onChange={(e)=>setTitle(e.target.value)} 
+                onChange={(e)=>setTitle(e.target.value)}
+                placeholder="Enter title..." 
               />
               {error.title && <p>Title field is required.</p>}
             </div>
             <div className={amountClass}>
                 <label>Amount</label>
-                <input type="text" value={amount} onChange={(e)=>setAmount(e.target.value)} />
+                <input type="text" value={amount} onChange={(e)=>setAmount(e.target.value)} placeholder="Enter amount..."  />
                 {error.amount && <p>Amount should be numbers i.e., [0-9].</p>}
             </div>
             <button className={classes.btn}>Add</button>

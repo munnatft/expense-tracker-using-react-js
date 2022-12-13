@@ -29,6 +29,7 @@
     gap: 0.75rem;
     background-color: #0b1b34;
     color: white;
+    list-style: none;
 }
 
 .no-transaction {
