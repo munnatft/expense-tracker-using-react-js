@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react"
+import { findAllByRole, render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Provider } from "react-redux"
 import App from "./App"
@@ -26,5 +26,27 @@ describe("App", ()=> {
         expect(imageElement).toBeInTheDocument()
     })
 
+    test("should render another transaction when clicking on add button", async()=>{
+        userEvent.setup()
+        render(<MockApp />)
 
+        const selectElement = screen.getByRole('combobox', { name: /choose\-type/i })
+        const titleInputElement = screen.getByPlaceholderText('Enter title...')
+        const amountInputElement = screen.getByPlaceholderText('Enter amount...')
+        const addButton = screen.getByRole('button', { name: /add/i })
+
+        await userEvent.selectOptions(selectElement, "Income")
+        await userEvent.type(titleInputElement, "Sold laptop")
+        await userEvent.type(amountInputElement, "20000")
+        
+        await userEvent.click(addButton)
+
+        expect(titleInputElement).toHaveValue('')
+        expect(amountInputElement).toHaveValue('')
+        
+        const listElement = await screen.findByText("Sold laptop")
+        const listElements = await screen.findAllByRole("listitem")
+        expect(listElement).toBeInTheDocument()
+        expect(listElements).toHaveLength(3)
+    })
 })
