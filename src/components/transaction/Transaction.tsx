@@ -20,11 +20,12 @@ const Transaction = () => {
       <div className={classes["card-title"]}>History of transactions</div>
       <ul className={classes["card-body"]}>
         {transactions.length > 0 &&
-          transactions.map((transaction) => {
+          transactions.map((transaction, index) => {
             return (
               <TransactionList
                 key={transaction._id}
                 transaction={transaction}
+                ariaLabel={`transaction-${index}`}
               />
             );
           })}

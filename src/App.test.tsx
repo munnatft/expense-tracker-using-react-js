@@ -29,6 +29,7 @@ describe("App", ()=> {
     test("should render another transaction when clicking on add button", async()=>{
         userEvent.setup()
         render(<MockApp />)
+        const handleAddTransaction = jest.fn()
 
         const selectElement = screen.getByRole('combobox', { name: /choose\-type/i })
         const titleInputElement = screen.getByPlaceholderText('Enter title...')

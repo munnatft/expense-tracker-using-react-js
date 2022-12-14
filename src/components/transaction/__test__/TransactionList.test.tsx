@@ -1,9 +1,10 @@
-import { render, screen, fireEvent } from "@testing-library/react"
+import { render, screen, fireEvent, waitForElementToBeRemoved, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Provider } from "react-redux"
 import { store } from "../../../Store"
 import TransactionList from "../TransactionList"
 import styles from "../Transaction.module.css"
+import { waitForDebugger } from "inspector"
 
 const transaction: Transaction = {
     _id: "1",
@@ -44,12 +45,5 @@ describe("TransactionList", ()=>{
         expect(title).toBeInTheDocument()
         expect(amount).toBeInTheDocument()
         expect(amount).toHaveClass(styles['expense-type'])
-    })
-
-    test("should delete the transaction on clciking cross button", async()=> {
-        userEvent.setup()
-        render(<WrappedTransactionList transaction={transaction} />)
-        const deleteBtn = screen.getByLabelText(/delete/i)
-        await userEvent.click(deleteBtn)
     })
 })

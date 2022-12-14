@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitForElementToBeRemoved } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { Provider } from "react-redux"
 import { store } from "../../../Store"
 import Transaction from "../Transaction"
@@ -27,5 +28,18 @@ describe("Transaction", ()=>{
 
         const listElements = await screen.findAllByRole("listitem")
         expect(listElements).toHaveLength(2)
+    })
+
+    test("should delete transaction when click on cross button", async()=> {
+        userEvent.setup()
+        render(<WrappedTransaction />)
+
+        const deleteButton =  await screen.findByLabelText("delete-transaction-0")
+        expect(deleteButton).toBeInTheDocument()
+
+        await userEvent.click(deleteButton)
+
+        await waitForElementToBeRemoved(()=>screen.queryByText("Salared"))
+
     })
 })
