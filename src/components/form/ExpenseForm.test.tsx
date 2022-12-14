@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react"
 import { Provider } from "react-redux"
-import { store } from "../Store"
+import { store } from "../../Store"
 import ExpenseForm from "./ExpenseForm"
 
 const MockExpenseForm = () => (

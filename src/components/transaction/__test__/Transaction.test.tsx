@@ -21,4 +21,11 @@ describe("Transaction", ()=>{
         const unorderedListElement = screen.getByRole("list")
         expect(unorderedListElement).toBeInTheDocument()
     })
+
+    test("should render a list of length 2 in the transaction component", async()=>{
+        render(<WrappedTransaction />)
+
+        const listElements = await screen.findAllByRole("listitem")
+        expect(listElements).toHaveLength(2)
+    })
 })

@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { Provider } from "react-redux"
 import App from "./App"
 import ErrorBoundary from "./components/error/ErrorBoundary"
@@ -24,4 +25,6 @@ describe("App", ()=> {
         const imageElement = screen.getByAltText(/expense-tracker/i)
         expect(imageElement).toBeInTheDocument()
     })
+
+
 })

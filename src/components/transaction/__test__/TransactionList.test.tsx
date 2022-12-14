@@ -1,4 +1,5 @@
-import { render, screen, fireEvent, waitFor, waitForElementToBeRemoved } from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { Provider } from "react-redux"
 import { store } from "../../../Store"
 import TransactionList from "../TransactionList"
@@ -46,9 +47,9 @@ describe("TransactionList", ()=>{
     })
 
     test("should delete the transaction on clciking cross button", async()=> {
+        userEvent.setup()
         render(<WrappedTransactionList transaction={transaction} />)
-        const titleElement = screen.getByText(/new salary/i)
         const deleteBtn = screen.getByLabelText(/delete/i)
-        fireEvent.click(deleteBtn)
+        await userEvent.click(deleteBtn)
     })
 })
