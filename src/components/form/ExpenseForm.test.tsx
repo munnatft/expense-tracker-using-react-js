@@ -1,13 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react"
-import { Provider } from "react-redux"
-import { store } from "../../Store"
+import { render, screen, fireEvent } from "test-utils"
 import ExpenseForm from "./ExpenseForm"
 
-const MockExpenseForm = () => (
-    <Provider store={store} >
-        <ExpenseForm />
-    </Provider>
-)
 
 const checkInputValidation = (placeholderText: string, errorText: string) => {
     const inputElement = screen.getByPlaceholderText(placeholderText) as HTMLInputElement
@@ -27,13 +20,13 @@ const changeInputValue = (placeholderText: string, value: string) => {
 
 describe("ExpenseForm", ()=> {
     test("should render heading tag", async()=>{
-        render(<MockExpenseForm />)
+        render(<ExpenseForm />)
         const headingElement = screen.getByText(/Add Income\/Expense/i)
         expect(headingElement).toBeInTheDocument()
     })
 
     test("should render two inputs html tag", async() => {
-        render(<MockExpenseForm />)
+        render(<ExpenseForm />)
         const titleInputElement = screen.getByPlaceholderText(/Enter title.../i)
         const amountInputElement = screen.getByPlaceholderText(/Enter amount.../i)
         expect(titleInputElement).toBeInTheDocument()
@@ -41,13 +34,13 @@ describe("ExpenseForm", ()=> {
     })
 
     test("should change title and amount input value when we type", async() => {
-        render(<MockExpenseForm />)
+        render(<ExpenseForm />)
         changeInputValue("Enter title...", "Salary")
         changeInputValue("Enter amount...", "25000")
     })
 
     test("should render select tag and change also on choosing option", async() => {
-        render(<MockExpenseForm />)
+        render(<ExpenseForm />)
         const selectElement = screen.getByLabelText(/choose-type/i) as HTMLSelectElement
         expect(selectElement.value).toBe("Income")
         fireEvent.change(selectElement, { target: { value: "Expense"}})
@@ -55,12 +48,12 @@ describe("ExpenseForm", ()=> {
     })
 
     test("should check title input validation on submitting form", async() => {
-        render(<MockExpenseForm />)
+        render(<ExpenseForm />)
         checkInputValidation("Enter title...", "Title field is required.")
     })
 
     test("should check amount input validation on submitting form", async()=>{
-        render(<MockExpenseForm />)
+        render(<ExpenseForm />)
         checkInputValidation("Enter amount...", "Amount should be numbers i.e., [0-9].")
     })
 

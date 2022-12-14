@@ -1,35 +1,24 @@
-import { findAllByRole, render, screen } from "@testing-library/react"
+import { render, screen } from "./test-utils"
 import userEvent from "@testing-library/user-event"
-import { Provider } from "react-redux"
 import App from "./App"
-import ErrorBoundary from "./components/error/ErrorBoundary"
-import { store } from "./Store"
 
-const MockApp = () => (
-    <Provider store={store}>
-        <ErrorBoundary>
-            <App />
-        </ErrorBoundary>
-    </Provider>
-)
 
 describe("App", ()=> {
     test("should render heading tag", async()=>{
-        render(<MockApp />)
+        render(<App />)
         const headingElement = screen.getByText(/My Budget Tracker/i)
         expect(headingElement).toBeInTheDocument()
     })
 
     test("should render image tag", async()=>{
-        render(<MockApp />)
+        render(<App />)
         const imageElement = screen.getByAltText(/expense-tracker/i)
         expect(imageElement).toBeInTheDocument()
     })
 
     test("should render another transaction when clicking on add button", async()=>{
         userEvent.setup()
-        render(<MockApp />)
-        const handleAddTransaction = jest.fn()
+        render(<App />)
 
         const selectElement = screen.getByRole('combobox', { name: /choose\-type/i })
         const titleInputElement = screen.getByPlaceholderText('Enter title...')

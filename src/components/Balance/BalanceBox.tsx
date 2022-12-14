@@ -4,8 +4,8 @@ import classes from './Budget.module.css';
 import Expense from './Expense';
 import Savings from './Savings';
 import { useEffect } from 'react';
-import { calculateExpense, calculateIncome } from '../../Store/action';
-import { useTypedSelector } from '../../Store';
+import { calculateExpense, calculateIncome } from 'Store/action';
+import { useTypedSelector } from 'Store';
 import { Dispatch } from 'redux';
 
 const BalanceBox = () => {

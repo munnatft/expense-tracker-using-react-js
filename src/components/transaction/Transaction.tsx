@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ThunkActionDispatch } from "redux-thunk";
-import { useTypedSelector } from "../../Store";
-import { handleFetchTransaction } from "../../Store/action";
+import { useTypedSelector } from "Store";
+import { handleFetchTransaction } from "Store/action";
 import classes from "./Transaction.module.css";
 import TransactionList from "./TransactionList";
 

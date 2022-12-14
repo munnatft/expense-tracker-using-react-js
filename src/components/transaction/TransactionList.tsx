@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { ThunkActionDispatch } from 'redux-thunk';
-import {  handleDeleteTransaction } from '../../Store/action';
+import {  handleDeleteTransaction } from 'Store/action';
 import classes from './Transaction.module.css';
 
 const TransactionList = ({transaction, ariaLabel="transaction"}: {transaction: Transaction, ariaLabel?: string}) => {

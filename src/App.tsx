@@ -1,8 +1,8 @@
 import { ToastContainer } from 'react-toastify';
-import BalanceBox from './components/Balance/BalanceBox';
-import ErrorBoundary from './components/error/ErrorBoundary';
-import ExpenseForm from './components/form/ExpenseForm';
-import Transaction from './components/transaction/Transaction';
+import BalanceBox from 'components/Balance/BalanceBox';
+import ErrorBoundary from 'components/error/ErrorBoundary';
+import ExpenseForm from 'components/form/ExpenseForm';
+import Transaction from 'components/transaction/Transaction';
 import expenseTrackerLogo from "./assets/expense-tracker.png";
 import './index.css';
 
