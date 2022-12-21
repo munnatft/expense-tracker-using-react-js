@@ -11,7 +11,7 @@ const TransactionList = ({transaction, ariaLabel="transaction"}: {transaction: T
 
 
   return (
-    <li aria-label={ariaLabel} className={classes['list-item']} >
+    <li aria-labelledby={ariaLabel} className={classes['list-item']} >
         <div className={classes['expense-title']}>{title}</div>
         <div className={classes['expense']}>
           <span className={`${classes['amount']} ${type === 'Expense' ? classes['expense-type'] : classes['income-type']}`}>Rs {amount}</span>
