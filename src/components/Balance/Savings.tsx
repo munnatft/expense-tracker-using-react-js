@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Budget.module.css';
 
-const Savings: React.FC<{savings: number}> = ({savings}) => {
+const Savings = ({savings}: {savings: number}) => {
 
   const savingsClassName = `${classes['budget']} ${savings < 0 ? classes['savings'] : ''}`
   return (
